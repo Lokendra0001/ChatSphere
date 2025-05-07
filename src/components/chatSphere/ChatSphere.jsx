@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { Container } from "../Index";
-import ChatBox from "./ChatBox";
-import ContactList from "./ContactList";
-import {
-  MessageCircle,
-  Menu,
-  LogOutIcon,
-  MessageCircleCode,
-} from "lucide-react";
+import { ChatBox, ContactList } from "../Index";
+import { Menu, LogOutIcon, MessageCircleCode } from "lucide-react";
 import authService from "../../appwrite/authService";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../../store/authSlice";
 
 function ChatSphere() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = async () => {
     const userOut = await authService.logoutAccount();
+    dispatch(removeUser());
     if (userOut) navigate("/login");
   };
 

@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Login, Signup } from "./components/Index.jsx";
+import { Login, PublicRoute, Signup } from "./components/Index.jsx";
 import Home from "./pages/Home.jsx";
 
 // Define routes here — this example assumes routing will grow
@@ -15,8 +15,22 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/login", element: <Login /> },
-      { path: "/signup", element: <Signup /> },
+      {
+        path: "/login",
+        element: (
+          <PublicRoute>
+            <Login />{" "}
+          </PublicRoute>
+        ),
+      },
+      {
+        path: "/signup",
+        element: (
+          <PublicRoute>
+            <Signup />{" "}
+          </PublicRoute>
+        ),
+      },
     ],
   },
 ]);
