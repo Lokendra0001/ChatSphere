@@ -58,8 +58,6 @@ function ChatBox({ user }) {
   // This fetch data is use for the addding message and show in realtime
   useEffect(() => {
     const unsubscribe = chatService.subscribeToMessages((newMessage) => {
-      console.log(newMessage);
-
       const isRelevant =
         (newMessage.payload.sender_id === userData.$id &&
           newMessage.payload.receiver_id === user?.contact_id) ||
@@ -143,7 +141,7 @@ function ChatBox({ user }) {
   ) : (
     <div className="w-full h-full flex flex-col bg-gray-50">
       {/* Enhanced Header */}
-      <div className="flex items-center justify-between bg-white p-3 border-b border-gray-200 shadow-xs">
+      <div className="sticky top-0 flex items-center justify-between bg-white p-3 border-b border-gray-200 shadow-xs">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center text-white font-medium">
             {user.contact_name.slice(0, 1).toUpperCase()}

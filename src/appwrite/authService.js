@@ -69,13 +69,20 @@ class authServices {
 
   async googleLogin() {
     try {
-      return await this.account.createOAuth2Session(
+      await this.account.createOAuth2Session(
         "google",
         "https://chat-sphere-three-azure.vercel.app/",
         "https://chat-sphere-three-azure.vercel.app/login"
       );
+
+      // After redirect and login, fetch the current user
+      const user = await this.getCurrentUser();
+      if (user) {
+        await this.setContactList(user.$id, user.name);
+        return user;
+      }
     } catch (error) {
-      console.log(error);
+      console.log("Google Login Error:", error.message || error);
     }
   }
 
