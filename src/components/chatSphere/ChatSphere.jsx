@@ -27,7 +27,7 @@ function ChatSphere() {
         {/* Toggle Button - for small screens */}
         <button
           className={`absolute top-4 right-4 z-50 sm:hidden p-1 text-purple-600 rounded transition-all duration-300 ${
-            isSidebarOpen ? "right-74 shadow" : "right-4"
+            isSidebarOpen ? "right-74 shadow bg-white" : "right-4"
           }`}
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >

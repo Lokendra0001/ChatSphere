@@ -71,8 +71,8 @@ class authServices {
     try {
       return await this.account.createOAuth2Session(
         "google",
-        "http://localhost:5173/",
-        "http://localhost:5173/login"
+        "https://chat-sphere-three-azure.vercel.app/",
+        "https://chat-sphere-three-azure.vercel.app/login"
       );
     } catch (error) {
       console.log(error);
