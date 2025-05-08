@@ -115,59 +115,61 @@ function ChatBox({ user }) {
   };
 
   return !user ? (
-    <div className="h-[100dvh] w-full flex flex-col justify-center items-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <div className="h-[100dvh] w-full flex flex-col justify-center items-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700">
       <div className="relative mb-8">
-        <div className="absolute -inset-4 bg-indigo-200/50 blur-xl rounded-full animate-pulse"></div>
-        <div className="relative w-24 h-24 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full shadow-lg animate-[float_4s_ease-in-out_infinite]">
+        <div className="absolute -inset-4 bg-indigo-200/50 blur-xl rounded-full animate-pulse dark:bg-indigo-800/30" />
+        <div className="relative w-24 h-24 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full shadow-lg animate-[float_4s_ease-in-out_infinite] dark:from-indigo-600 dark:to-purple-700">
           <MessageCircle className="w-12 h-12 text-white" strokeWidth={1.5} />
         </div>
       </div>
 
-      <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 text-center leading-tight">
+      <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 text-center leading-tight dark:from-indigo-400 dark:to-purple-400">
         Welcome to ChatSphere
       </h1>
 
-      <p className="text-lg text-gray-600 mb-8 max-w-md text-center px-4">
+      <p className="text-lg text-gray-600 mb-8 max-w-md text-center px-4 dark:text-gray-300">
         Select a contact or start a new conversation to begin your messaging
         experience
       </p>
-      <p className="text-md text-gray-500 mb-8 max-w-md text-center px-4 animate-pulse">
+      <p className="text-md text-gray-500 mb-8 max-w-md text-center px-4 animate-pulse dark:text-gray-400">
         Sometimes the google Login User not shown in other device!
       </p>
 
       <div className="flex items-center gap-3 animate-bounce">
-        <ChevronLeft className="w-5 h-5 text-purple-500" />
-        <span className="text-sm font-medium text-purple-600">
+        <ChevronLeft className="w-5 h-5 text-purple-500 dark:text-purple-400" />
+        <span className="text-sm font-medium text-purple-600 dark:text-purple-400">
           Choose from sidebar
         </span>
       </div>
 
-      <div className="absolute bottom-8 flex items-center gap-2 text-sm text-gray-400">
+      <div className="absolute bottom-8 flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500">
         <Smile className="w-4 h-4" />
         <span>Your messages are end-to-end encrypted</span>
       </div>
     </div>
   ) : (
-    <div className="w-full h-full flex flex-col bg-gray-50">
+    <div className="w-full h-full flex flex-col bg-gray-50 dark:bg-gray-900">
       {/* Enhanced Header */}
-      <div className="sticky top-0 flex items-center justify-between bg-white p-3 border-b border-gray-200 shadow-xs">
+      <div className="sticky top-0 flex items-center justify-between bg-white p-3 border-b border-gray-200 shadow-xs dark:bg-gray-800 dark:border-gray-700">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center text-white font-medium">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center text-white font-medium dark:from-purple-600 dark:to-indigo-700">
             {user.contact_name.slice(0, 1).toUpperCase()}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100">
               {user.contact_name.slice(0, 1).toUpperCase() +
                 user.contact_name.slice(1)}
             </h3>
             <div className="flex items-center space-x-1">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-              <span className="text-xs text-gray-500">Online</span>
+              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs text-gray-500 dark:text-gray-400">
+                Online
+              </span>
             </div>
           </div>
         </div>
         <div className="flex items-center space-x-4">
-          <button className="text-gray-500 hover:text-gray-700 transition-colors">
+          <button className="text-gray-500 hover:text-gray-700 transition-colors dark:text-gray-400 dark:hover:text-gray-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -188,29 +190,33 @@ function ChatBox({ user }) {
       </div>
 
       {/* Chat Area */}
-      <div className={`flex-1 overflow-y-auto py-1 pt-5 space-y-2 px-4 `}>
+      <div
+        className={`flex-1 overflow-y-auto py-1 pt-5 space-y-2 px-4 dark:bg-gray-900`}
+      >
         {loading ? (
           <div className="flex justify-center items-center h-full">
             <div className="flex flex-col items-center space-y-3">
               {/* Typing indicator with smooth animation */}
               <div className="flex space-x-1.5">
-                <div className="w-2.5 h-2.5 bg-indigo-400 rounded-full animate-[bounce_1s_infinite]"></div>
-                <div className="w-2.5 h-2.5 bg-indigo-500 rounded-full animate-[bounce_1s_infinite_0.2s]"></div>
-                <div className="w-2.5 h-2.5 bg-indigo-600 rounded-full animate-[bounce_1s_infinite_0.4s]"></div>
+                <div className="w-2.5 h-2.5 bg-indigo-400 rounded-full animate-[bounce_1s_infinite] dark:bg-indigo-500" />
+                <div className="w-2.5 h-2.5 bg-indigo-500 rounded-full animate-[bounce_1s_infinite_0.2s] dark:bg-indigo-600" />
+                <div className="w-2.5 h-2.5 bg-indigo-600 rounded-full animate-[bounce_1s_infinite_0.4s] dark:bg-indigo-700" />
               </div>
 
               {/* Optional subtle text */}
-              <span className="text-xs font-medium text-gray-500">
+              <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
                 Loading messages...
               </span>
             </div>
           </div>
         ) : messages.length === 0 ? (
           <div className="flex justify-center items-center h-full">
-            <div className="text-center text-gray-400">
-              <MessageCircle className="w-12 h-12 mx-auto mb-3 text-gray-600" />
-              <p className="text-gray-400">No messages yet</p>
-              <p className="text-sm text-gray-500">
+            <div className="text-center text-gray-400 dark:text-gray-500">
+              <MessageCircle className="w-12 h-12 mx-auto mb-3 text-gray-600 dark:text-gray-500" />
+              <p className="text-gray-400 dark:text-gray-500">
+                No messages yet
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
                 Start your conversation with "
                 {user.contact_name.slice(0, 1).toUpperCase() +
                   user.contact_name.slice(1)}
@@ -231,8 +237,8 @@ function ChatBox({ user }) {
                 <div
                   className={`relative rounded-md overflow-hidden z-50 shadow-sm ${
                     msg.sender_id === userData.$id
-                      ? "bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-tr-none"
-                      : "bg-indigo-100 text-gray-800 rounded-tl-none "
+                      ? "bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-tr-none dark:from-purple-600 dark:to-indigo-700"
+                      : "bg-indigo-100 text-gray-800 rounded-tl-none dark:bg-gray-700 dark:text-gray-200"
                   }`}
                 >
                   {/* Message content */}
@@ -264,7 +270,7 @@ function ChatBox({ user }) {
                         className={`text-[10px] self-end  ${
                           msg.sender_id === userData.$id
                             ? "text-purple-100/90"
-                            : "text-gray-500"
+                            : "text-gray-500 dark:text-gray-400"
                         }`}
                       >
                         {new Date(msg.$createdAt).toLocaleTimeString([], {
@@ -288,8 +294,8 @@ function ChatBox({ user }) {
                     viewBox="0 0 14 12"
                     className={`${
                       msg.sender_id === userData.$id
-                        ? "text-indigo-500"
-                        : "text-indigo-100"
+                        ? "text-indigo-500 dark:text-indigo-600"
+                        : "text-indigo-100 dark:text-gray-700"
                     }`}
                   >
                     <path
@@ -312,11 +318,11 @@ function ChatBox({ user }) {
       {/* Message Input */}
       <form
         onSubmit={handleSubmit(submit)}
-        className="p-4 border-t border-gray-200 bg-white"
+        className="p-4 border-t border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700"
       >
         <div className="flex items-center space-x-2">
           <label className="cursor-pointer" title="Select Img and Send auto">
-            <Paperclip className="w-5 h-5" />
+            <Paperclip className="w-5 h-5 text-gray-500 dark:text-gray-400" />
             <input
               type="file"
               className="hidden"
@@ -328,10 +334,10 @@ function ChatBox({ user }) {
           <Input
             type="text"
             placeholder="Type a message..."
-            className="flex-1 border border-gray-200 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="flex-1 border border-gray-200 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:ring-purple-600"
             {...register("message", { required: "Message is required" })}
           />
-          <Button className="p-2 cursor-pointer text-white bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:opacity-90 transition-opacity">
+          <Button className="p-2 cursor-pointer text-white bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:opacity-90 transition-opacity dark:from-purple-600 dark:to-indigo-700">
             <Send className="w-5 h-5" />
           </Button>
         </div>

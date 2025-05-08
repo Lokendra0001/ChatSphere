@@ -34,7 +34,7 @@ function Signup() {
 
   return (
     <PurpleCanva>
-      <div className="max-w-[1200px] md:w-[900px]  mx-auto md:bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row bg-indigo-800/80 ">
+      <div className="max-w-[1200px] md:w-[900px] mx-auto md:bg-white dark:md:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row bg-indigo-800/80 dark:bg-gray-800">
         {/* Left side - Welcome Image */}
         <div className="flex md:w-1/2 py-10 relative items-center justify-center md:rounded-none">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center"></div>
@@ -82,23 +82,23 @@ function Signup() {
         </div>
 
         {/* Right side - Form */}
-        <div className="w-full md:w-1/2 p-6  bg-white rounded-t-4xl flex flex-col justify-center">
+        <div className="w-full md:w-1/2 p-6 bg-white dark:bg-gray-800 rounded-t-4xl flex flex-col justify-center">
           <div className="text-center mb-7 flex flex-col">
-            <div className="inline-flex items-center justify-center gap-2  ">
+            <div className="inline-flex items-center justify-center gap-2">
               <MessageCircleCode className="h-7 w-7 text-purple-600 animate-pulse" />
               <h1 className="md:text-4xl font-extrabold bg-gradient-to-r from-purple-700 via-purple-500 to-purple-500 bg-clip-text text-transparent tracking-tight text-[30px] mb-1">
                 ChatSphere
               </h1>
             </div>
             <div className="relative inline-block">
-              <p className="relative z-10 text-gray-600 text-sm  font-medium px-4 py-1.5">
+              <p className="relative z-10 text-gray-600 dark:text-gray-300 text-sm font-medium px-4 py-1.5">
                 Enter your credentials to continue your journey
               </p>
             </div>
           </div>
 
           {err && (
-            <p className="text-red-600 bg-red-200 w-full text-center py-2">
+            <p className="text-red-600 bg-red-200 dark:bg-red-300/20 dark:text-red-400 w-full text-center py-2">
               {err}
             </p>
           )}
@@ -109,7 +109,7 @@ function Signup() {
                 type="text"
                 label="Username :"
                 placeholder="Enter Username"
-                className="focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                 {...register("name", {
                   required: "Username is required",
                 })}
@@ -125,7 +125,7 @@ function Signup() {
                 type="email"
                 label="Email :"
                 placeholder="Enter your email"
-                className="focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -146,7 +146,7 @@ function Signup() {
                 type="password"
                 label="Password :"
                 placeholder="Enter your password"
-                className="focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                 {...register("password", {
                   required: "Password is required",
                   minLength: {
@@ -163,10 +163,10 @@ function Signup() {
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="flex items-center text-sm text-slate-600">
+              <label className="flex items-center text-sm text-slate-600 dark:text-slate-300">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 text-purple-600 border-gray-300 rounded"
+                  className="h-4 w-4 text-purple-600 border-gray-300 dark:border-gray-600 rounded"
                 />
                 <span className="ml-2">Remember me</span>
               </label>
@@ -178,7 +178,7 @@ function Signup() {
               className="w-full bg-purple-700 hover:bg-purple-800 text-white py-3 px-4 rounded-md shadow-sm focus:ring-2 focus:ring-purple-500"
             />
 
-            <div className="text-center text-sm text-slate-500">
+            <div className="text-center text-sm text-slate-500 dark:text-slate-300">
               Already have an account?{" "}
               <Link
                 to="/login"
