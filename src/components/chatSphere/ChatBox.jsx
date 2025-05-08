@@ -168,7 +168,7 @@ function ChatBox({ user }) {
             </div>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="sm:flex items-center space-x-4 hidden">
           <button className="text-gray-500 hover:text-gray-700 transition-colors dark:text-gray-400 dark:hover:text-gray-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"

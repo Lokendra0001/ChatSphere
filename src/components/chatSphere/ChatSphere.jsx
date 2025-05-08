@@ -49,25 +49,25 @@ function ChatSphere() {
                 ChatSphere
               </h1>
             </div>
+            <div className="flex gap-3">
+              {/* Logout Button (with smooth glow) */}
+              <button
+                onClick={handleLogout}
+                className="group p-1 rounded-full transition-all duration-300  cursor-pointer"
+                title="Log Out"
+              >
+                <LogOutIcon className="w-5 h-5 text-gray-600 hover:text-gray-900  dark:text-gray-300 dark:group-hover:text-white group-hover:scale-110 transition-transform duration-200" />
+              </button>
 
-            {/* Logout Button (with smooth glow) */}
-            <button
-              onClick={handleLogout}
-              className="group p-1 rounded-full transition-all duration-300  cursor-pointer"
-              title="Log Out"
-            >
-              <LogOutIcon className="w-5 h-5 text-gray-600 hover:text-gray-900  dark:text-gray-300 dark:group-hover:text-white group-hover:scale-110 transition-transform duration-200" />
-            </button>
-
-            {/* Toggle Button - for small screens */}
-            <button
-              className={` z-50 sm:hidden p-1 text-purple-600 dark:text-white rounded transition-all duration-300 `}
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+              {/* Toggle Button - for small screens */}
+              <button
+                className={` z-50 sm:hidden  text-purple-600 dark:text-white rounded transition-all duration-300 `}
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+            </div>
           </div>
-
           {/* Contact List */}
           <div className="flex-1 overflow-y-auto dark:bg-gray-800">
             <ContactList
