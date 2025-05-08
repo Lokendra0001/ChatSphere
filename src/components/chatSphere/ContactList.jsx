@@ -72,8 +72,8 @@ function ContactList({ onSelectt }) {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-gradient-to-bl dark:from-purple-500 dark:to-indigo-600 flex items-center justify-center">
-                    <span className="text-indigo-800 dark:text-indigo-200 font-medium text-lg">
+                  <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-200/85  flex items-center justify-center">
+                    <span className="text-indigo-800 dark:text-gray-700 font-medium text-lg">
                       {user.contact_name?.slice(0, 1).toUpperCase() || <User />}
                     </span>
                   </div>

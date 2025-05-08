@@ -45,11 +45,11 @@ function ChatSphere() {
             {/* Logo & Branding (with floating animation) */}
             <div className="flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5">
               <MessageCircleCode className="w-6 h-6 text-purple-800 dark:text-purple-500 animate-pulse duration-1500" />
-              <h1 className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-tr from-indigo-600 to-purple-600  dark:from-purple-500 dark:to-indigo-500 tracking-tight drop-shadow-md pointer-events-none">
+              <h1 className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-tr from-indigo-600 to-purple-600  dark:from-purple-500 dark:to-indigo-400 tracking-tight drop-shadow-md pointer-events-none">
                 ChatSphere
               </h1>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               {/* Logout Button (with smooth glow) */}
               <button
                 onClick={handleLogout}
