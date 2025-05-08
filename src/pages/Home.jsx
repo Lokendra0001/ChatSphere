@@ -22,9 +22,9 @@ function Home() {
   const user = useSelector((state) => state.auth.userData);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
+    <div className="min-h-[100dvh] bg-gradient-to-br from-slate-50 to-purple-50">
       {loading ? (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="h-[100dvh] flex items-center justify-center">
           <div className="relative">
             {/* Animated circles */}
             <div className="w-20 h-20 rounded-full bg-purple-100/50 absolute animate-ping"></div>
@@ -43,7 +43,7 @@ function Home() {
       ) : user ? (
         <ChatSphere />
       ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen p-6">
+        <div className="flex flex-col items-center justify-center min-h-[100dvh] p-6">
           <div className="w-full max-w-md bg-white rounded-xl shadow-md overflow-hidden p-8 text-center">
             <div className="mx-auto w-20 h-20 rounded-full bg-purple-100 flex items-center justify-center mb-6">
               <MessageCircle className="w-10 h-10 text-purple-600" />

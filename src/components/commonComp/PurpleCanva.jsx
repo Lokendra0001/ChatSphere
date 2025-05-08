@@ -12,7 +12,7 @@ export default function PurpleCanva({ children }) {
       {/* Decorative top right shape */}
       <div className="absolute top-[-20px] right-[-18px] w-36 h-36 bg-purple-400 rounded-xl -rotate-12 opacity-80"></div>
 
-      <div className="relative z-10 md:px-7 px-3 py-5 flex justify-center items-center min-h-[605px]">
+      <div className="relative z-10 md:px-7  py-5 flex justify-center items-center min-h-[605px]">
         {children}
       </div>
     </div>

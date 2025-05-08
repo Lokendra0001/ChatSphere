@@ -36,12 +36,17 @@ class ChatService {
   }
 
   // Fetch all messages with pagination
-  async getMessages(queries = []) {
+  async getMessages(limit = 50, offset = 0, queries = []) {
     try {
       return await this.databases.listDocuments(
         conf.VITE_APPWRITE_DATABASE_ID,
         conf.VITE_APPWRITE_COLLECTION_ID,
-        [Query.orderAsc("$createdAt")]
+        [
+          Query.limit(limit), // Specify limit for pagination
+          Query.offset(offset), // Skip 'offset' number of records
+          ...queries, // Additional queries can still be passed in
+          Query.orderAsc("$createdAt"), // Order messages by creation time
+        ]
       );
     } catch (error) {
       console.error("Get Messages Error:", error);

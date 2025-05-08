@@ -34,7 +34,9 @@ function Login() {
     const session = await authService.googleLogin();
     if (session) {
       const user = await authService.getCurrentUser();
-      if (user) dispatch(addUser(user));
+      if (user) {
+        dispatch(addUser(user));
+      }
     } else {
       setTimeout(() => setErr("Google Login Failed Try Again!"), 5000);
     }

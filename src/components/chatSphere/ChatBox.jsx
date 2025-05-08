@@ -14,12 +14,7 @@ import { useSelector } from "react-redux";
 function ChatBox({ user }) {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const userData = useSelector((state) => state.auth.userData);
   const messageEndRef = useRef(null);
 
@@ -36,13 +31,21 @@ function ChatBox({ user }) {
 
       if (!user || !userData?.$id) return;
 
-      const msgs = await chatService.getMessages();
+      const msgs = await chatService.getMessages(85, 0);
       if (msgs && msgs.documents) {
+        //Reciever and user
+        //681c26cb000b1fca7465
+        //681c2719002288031677
+        //681c26cb000b1fca7465
+
+        //Sender and userData
+        //681c2719002288031677
+        //681c2719002288031677
         const filteredMessages = msgs.documents.filter(
           (msg) =>
             (msg.sender_id === userData.$id &&
-              msg.receiver_id === user?.contact_id) ||
-            (msg.sender_id === user?.contact_id &&
+              msg.receiver_id === user.contact_id) ||
+            (msg.sender_id === user.contact_id &&
               msg.receiver_id === userData.$id)
         );
         setMessages(filteredMessages);
@@ -72,10 +75,12 @@ function ChatBox({ user }) {
     return () => {
       if (unsubscribe) unsubscribe();
     };
-  }, [user?.contact_id]);
+  }, [user?.contact_id, userData.$id]);
 
   useEffect(() => {
-    scrollBottom();
+    setTimeout(() => {
+      scrollBottom();
+    }, 200);
   }, [messages]);
 
   const submit = async (data) => {
@@ -104,12 +109,13 @@ function ChatBox({ user }) {
           "image"
         );
         if (msg) console.log("Message Image sended");
+        else console.log("Error occured try again");
       }
     }
   };
 
   return !user ? (
-    <div className="h-screen w-full flex flex-col justify-center items-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <div className="h-[100dvh] w-full flex flex-col justify-center items-center bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
       <div className="relative mb-8">
         <div className="absolute -inset-4 bg-indigo-200/50 blur-xl rounded-full animate-pulse"></div>
         <div className="relative w-24 h-24 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full shadow-lg animate-[float_4s_ease-in-out_infinite]">
@@ -124,6 +130,9 @@ function ChatBox({ user }) {
       <p className="text-lg text-gray-600 mb-8 max-w-md text-center px-4">
         Select a contact or start a new conversation to begin your messaging
         experience
+      </p>
+      <p className="text-md text-gray-500 mb-8 max-w-md text-center px-4 animate-pulse">
+        Sometimes the google Login User not shown in other device!
       </p>
 
       <div className="flex items-center gap-3 animate-bounce">

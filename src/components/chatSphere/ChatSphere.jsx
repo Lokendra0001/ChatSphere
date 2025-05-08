@@ -20,7 +20,7 @@ function ChatSphere() {
   };
 
   return (
-    <Container className="w-full h-screen bg-slate-50">
+    <Container className="w-full h-[100dvh] bg-slate-50">
       <div className="flex h-full overflow-hidden relative">
         {/* Toggle Button - for small screens */}
         <button
