@@ -52,7 +52,7 @@ function ContactList({ onSelectt }) {
       </div>
 
       {/* Contacts List */}
-      <div className="divide-y divide-gray-200 dark:divide-gray-700 max-h-[calc(100vh-200px)] overflow-y-auto cursor-pointer">
+      <div className="divide-y divide-gray-200 dark:divide-gray-700 max-h-[100dvh] overflow-y-auto cursor-pointer">
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => (
             <div
